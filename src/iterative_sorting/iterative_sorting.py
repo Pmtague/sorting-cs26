@@ -37,10 +37,28 @@ def bubble_sort(arr):
     # If no swaps performed, stop. Else, go back to the element at index 0 and repeat step 1.
     return arr
 
+
 newarray = [9, 6, 1, 3, 2, 7, 4, 5, 8]
 print(bubble_sort(newarray))
 
 # STRETCH: implement the Count Sort function below
-def count_sort(arr, maximum=-1):
 
-    return arr
+
+def count_sort(arr, maximum=-1):
+	count = []
+	sorted_arr = []
+	for item in range(0, len(arr) - 1):
+		count.append(0)
+		if arr[item] < 0:
+			return "Error, negative numbers not allowed in Count Sort"
+		elif arr[item] >= 0:
+			count[arr[item]] += 1
+			item += 1
+	for j in range(0, len(count)):
+		while count[j] > 0:
+			sorted_arr.append(j)
+			count[j] -= 1
+	return sorted_arr
+
+newarray = [9, 6, 8, 3, 2, -7, 2, 5, 8]
+print(count_sort(newarray, 10))
