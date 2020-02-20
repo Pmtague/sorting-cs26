@@ -45,7 +45,7 @@ print(bubble_sort(newarray))
 
 
 def count_sort(arr, maximum=-1):
-	count = []
+	count = [0] * maximum
 	sorted_arr = []
 	for item in range(0, len(arr) - 1):
 		count.append(0)
